@@ -20,7 +20,7 @@ public class PluginLoader implements CommandExecutor {
             try {
                 Bukkit.getServer().getPluginManager().loadPlugin(new File("plugins"+File.separator+args[0]));
             } catch (InvalidPluginException | InvalidDescriptionException e) {
-                sender.sendMessage("Failed to load plugin "+args[0]);
+                sender.sendMessage("Failed to load plugin "+args[0]+", is the plugin in the plugins folder? Is it a valid plugin?");
             }
             return true;
         }
