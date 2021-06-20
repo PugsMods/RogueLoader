@@ -1,0 +1,8 @@
+# Project exclude paths
+/RougeLoader-Spigot/.gradle/
+/RougeLoader-Spigot/build/
+/RougeLoader-Spigot/build/classes/java/main/
+/.idea/
+
+*.jar
+gra

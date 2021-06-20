@@ -1,0 +1,6 @@
+name: RougeLoader-Spigot
+version: 1.0.0
+main: com.pugzarecute.rougeloaderspigot.RougeloaderSpigot
+api-version: 1.17
+load: STARTUP
+description: Add/Remove/Update Plugins on runtime
