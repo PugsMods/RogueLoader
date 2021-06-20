@@ -4,3 +4,9 @@ main: com.pugzarecute.rougeloaderspigot.RougeloaderSpigot
 api-version: 1.17
 load: STARTUP
 description: Add/Remove/Update Plugins on runtime
+commands:
+  load:
+    permission: rouge.loadplugin
+    description: Load a plugin
+    permission-message: You do not have permissions to do this.
+    usage:  /load <JARFILE_NAME>

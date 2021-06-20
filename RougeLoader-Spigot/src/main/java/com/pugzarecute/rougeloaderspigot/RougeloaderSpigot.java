@@ -11,13 +11,7 @@ public final class RougeloaderSpigot extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        try {
-            Bukkit.getServer().getPluginManager().loadPlugin(new File("essx.jar"));
-        } catch (InvalidPluginException e) {
-            e.printStackTrace();
-        } catch (InvalidDescriptionException e) {
-            e.printStackTrace();
-        }
+        getCommand("load").setExecutor(new PluginLoader());
     }
 
 
