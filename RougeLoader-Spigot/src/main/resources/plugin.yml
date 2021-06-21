@@ -10,3 +10,8 @@ commands:
     description: Load a plugin
     permission-message: You do not have permissions to do this.
     usage:  /load <JARFILE_NAME>
+  rouge:
+    permission: rouge.rouge
+    description: Enable/Disable a plugin
+    permission-message: You do not have permissions to do this.
+    usage:  /rouge <enable|disable> <Plugin_Name>
