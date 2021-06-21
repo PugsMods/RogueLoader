@@ -34,7 +34,13 @@ public class RougeCommand implements TabExecutor {
                 if(Bukkit.getPluginManager().getPlugin(args[1]) != null){
                 Bukkit.getPluginManager().enablePlugin(Bukkit.getPluginManager().getPlugin(args[1]));}
                 else {
-                    sender.sendMessage("Sorry, Plugin "+args[1]+"Could not be found.");
+                    sender.sendMessage("Sorry, Plugin "+args[1]+" could not be found.");
+                }
+            }else if(args[0].equalsIgnoreCase("disable")) {
+                if(Bukkit.getPluginManager().getPlugin(args[1]) != null){
+                    Bukkit.getPluginManager().disablePlugin(Bukkit.getPluginManager().getPlugin(args[1]));}
+                else {
+                    sender.sendMessage("Sorry, Plugin "+args[1]+" could not be found.");
                 }
             }
 
