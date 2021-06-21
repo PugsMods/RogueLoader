@@ -1,8 +1,10 @@
-# Project exclude paths
+/.idea/
+/.gradle/
+*.bin
+*.lock
+*.jar
+/RougeLoader-Forge/.gradle/gradle-wrapper.jar
+
 /RougeLoader-Spigot/.gradle/
 /RougeLoader-Spigot/build/
-/RougeLoader-Spigot/build/classes/java/main/
-/.idea/
-
-*.jar
-gra
+/RougeLoader-Spigot/build/gradle-wrapper.jar
