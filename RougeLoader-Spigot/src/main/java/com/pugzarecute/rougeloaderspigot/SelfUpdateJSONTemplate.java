@@ -18,11 +18,6 @@
 
 package com.pugzarecute.rougeloaderspigot;
 
-import com.google.gson.Gson;
-
-import java.io.File;
-
-public class RougeUpdater {
-    File selfUpateUrl = new File("https://update.pugzarecute.com/rougeloader/spigot.json");
-    Gson parsedJson = new Gson().fromJson(selfUpateUrl);
+public class SelfUpdateJSONTemplate {
+    // TODO: Make the template
 }
