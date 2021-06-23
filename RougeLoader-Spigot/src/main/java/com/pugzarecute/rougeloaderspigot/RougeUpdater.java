@@ -22,13 +22,25 @@ import com.google.gson.Gson;
 import com.pugzarecute.rougeloaderspigot.update.SelfUpdateJSONTemplate;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 
 public class RougeUpdater {
-    public static void checkForUpdates() throws FileNotFoundException {
-    File selfUpateUrl = new File("https://update.pugzarecute.com/rougeloader/spigot.json");
-    SelfUpdateJSONTemplate parsed= new Gson().fromJson(new FileReader(selfUpateUrl),SelfUpdateJSONTemplate.class);
-
-}
+    public static void checkForUpdates() throws IOException {
+        URL remoteUpdateFile = new URL("https://update.pugzarecute.com/rougeloader/spigot.json") ;
+        ReadableByteChannel rbc = Channels.newChannel(remoteUpdateFile.openStream());
+        FileOutputStream fos = new FileOutputStream("RougeLoader-UpdateJSON.cache");
+        fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+        File selfUpateUrl = new File("RougeLoader-UpdateJSON.cache");
+        SelfUpdateJSONTemplate parsed = new Gson().fromJson(new FileReader(selfUpateUrl), SelfUpdateJSONTemplate.class);
+        System.out.println(parsed.getLatestDevBuild());
+        selfUpateUrl.delete();
+    }
+    public static void main(String[] args) throws IOException {
+        checkForUpdates();
+    }
 }
