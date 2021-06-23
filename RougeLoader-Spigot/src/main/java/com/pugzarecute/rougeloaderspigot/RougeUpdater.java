@@ -37,10 +37,6 @@ public class RougeUpdater {
         fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
         File selfUpateUrl = new File("RougeLoader-UpdateJSON.cache");
         SelfUpdateJSONTemplate parsed = new Gson().fromJson(new FileReader(selfUpateUrl), SelfUpdateJSONTemplate.class);
-        System.out.println(parsed.getLatestDevBuild());
         selfUpateUrl.delete();
-    }
-    public static void main(String[] args) throws IOException {
-        checkForUpdates();
     }
 }
