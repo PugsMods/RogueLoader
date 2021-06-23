@@ -15,3 +15,8 @@ commands:
     description: Enable/Disable a plugin
     permission-message: You do not have permissions to do this.
     usage:  /rouge <enable|disable> <Plugin_Name>
+  update_plugin:
+    permission: rouge.updateplugin
+    permission-message: You do not have permissions to do this
+    description: Update a plugin.
+    usage: /update_plugin <OldFile> <NewFile> <PluginName>
