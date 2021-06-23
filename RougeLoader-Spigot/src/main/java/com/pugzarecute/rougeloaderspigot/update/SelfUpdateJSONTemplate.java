@@ -16,8 +16,24 @@
  *
  */
 
-package com.pugzarecute.rougeloaderspigot;
+package com.pugzarecute.rougeloaderspigot.update;
+
+import java.util.Map;
 
 public class SelfUpdateJSONTemplate {
-    // TODO: Make the template
+    public Map<String, Versions> getVersions() {
+        return versions;
+    }
+
+    public String getLatestDevBuild() {
+        return latestDevBuild;
+    }
+
+    public String getLatestStableBuild() {
+        return latestStableBuild;
+    }
+
+    private String latestDevBuild;
+    private String latestStableBuild;
+    private Map<String,Versions> versions;
 }

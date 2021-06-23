@@ -16,21 +16,23 @@
  *
  */
 
-package com.pugzarecute.rougeloaderspigot;
+package com.pugzarecute.rougeloaderspigot.update;
 
-import org.bukkit.plugin.java.JavaPlugin;
-
-public final class RougeloaderSpigot extends JavaPlugin {
-
-
-    @Override
-    public void onEnable() {
-        getCommand("load").setExecutor(new PluginLoader());
+public class Versions {
+    public String getChannel() {
+        return channel;
     }
 
-
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
+    public String getDownloadURL() {
+        return downloadURL;
     }
+
+    public String getVersionCode() {
+        return versionCode;
+    }
+
+    private String versionCode;
+    private String downloadURL;
+    private String channel;
+
 }

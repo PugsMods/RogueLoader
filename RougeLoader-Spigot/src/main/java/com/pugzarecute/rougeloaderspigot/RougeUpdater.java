@@ -19,10 +19,16 @@
 package com.pugzarecute.rougeloaderspigot;
 
 import com.google.gson.Gson;
+import com.pugzarecute.rougeloaderspigot.update.SelfUpdateJSONTemplate;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
 public class RougeUpdater {
+    public static void checkForUpdates() throws FileNotFoundException {
     File selfUpateUrl = new File("https://update.pugzarecute.com/rougeloader/spigot.json");
-    Gson parsedJson = new Gson().fromJson(selfUpateUrl);
+    SelfUpdateJSONTemplate parsed= new Gson().fromJson(new FileReader(selfUpateUrl),SelfUpdateJSONTemplate.class);
+
+}
 }
