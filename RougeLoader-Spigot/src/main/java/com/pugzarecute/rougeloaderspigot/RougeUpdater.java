@@ -20,6 +20,7 @@ package com.pugzarecute.rougeloaderspigot;
 
 import com.google.gson.Gson;
 import com.pugzarecute.rougeloaderspigot.update.SelfUpdateJSONTemplate;
+import org.bukkit.Bukkit;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -28,6 +29,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
+import java.util.logging.Level;
 
 public class RougeUpdater {
     public static void checkForUpdates() throws IOException {
@@ -37,6 +39,13 @@ public class RougeUpdater {
         fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
         File selfUpateUrl = new File("RougeLoader-UpdateJSON.cache");
         SelfUpdateJSONTemplate parsed = new Gson().fromJson(new FileReader(selfUpateUrl), SelfUpdateJSONTemplate.class);
+        if(parsed.getLatestStableBuildCodeVersion() > RougeloaderSpigot.CODE_VERSION){
+            Bukkit.getLogger().log(Level.WARNING,"This build of RougeLoader is outdated. You may find the latest build at: "+parsed.getVersions().get(parsed.getLatestStableBuildCodeVersion().toString()).getDownloadURL());
+        }
         selfUpateUrl.delete();
+    }
+
+    public static void main(String[] args) throws IOException {
+        checkForUpdates();
     }
 }

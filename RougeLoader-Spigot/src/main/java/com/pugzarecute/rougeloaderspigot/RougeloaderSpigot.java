@@ -21,11 +21,11 @@ package com.pugzarecute.rougeloaderspigot;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.IOException;
 import java.util.logging.Level;
 
 public final class RougeloaderSpigot extends JavaPlugin {
-
-
+    public static final Double CODE_VERSION = 1.0;
     @Override
     public void onEnable() {
         getCommand("load").setExecutor(new PluginLoader());
@@ -33,6 +33,11 @@ public final class RougeloaderSpigot extends JavaPlugin {
         getCommand("update_plugin").setExecutor(new PluginUpdater());
 
         Bukkit.getLogger().log(Level.INFO,"Starting RougeLoader Update Checker.");
+        try {
+            RougeUpdater.checkForUpdates();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

@@ -25,15 +25,15 @@ public class SelfUpdateJSONTemplate {
         return versions;
     }
 
-    public String getLatestDevBuild() {
-        return latestDevBuild;
+    public Double getLatestDevBuildCodeVersion() {
+        return latestDevBuildCodeVersion;
     }
 
-    public String getLatestStableBuild() {
-        return latestStableBuild;
+    public Double getLatestStableBuildCodeVersion() {
+        return latestStableBuildCodeVersion;
     }
 
-    private String latestDevBuild;
-    private String latestStableBuild;
+    private Double latestDevBuildCodeVersion;
+    private Double latestStableBuildCodeVersion;
     private Map<String,Versions> versions;
 }
