@@ -33,19 +33,20 @@ import java.util.logging.Level;
 
 public class RougeUpdater {
     public static void checkForUpdates() throws IOException {
+        //URL of the update JSON file from my servers
         URL remoteUpdateFile = new URL("https://update.pugzarecute.com/rougeloader/spigot.json") ;
         ReadableByteChannel rbc = Channels.newChannel(remoteUpdateFile.openStream());
         FileOutputStream fos = new FileOutputStream("RougeLoader-UpdateJSON.cache");
+        //Save remoteUpdateFile to a local file
         fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
         File selfUpateUrl = new File("RougeLoader-UpdateJSON.cache");
+        //Use GSON to parse the JSON
         SelfUpdateJSONTemplate parsed = new Gson().fromJson(new FileReader(selfUpateUrl), SelfUpdateJSONTemplate.class);
         if(parsed.getLatestStableBuildCodeVersion() > RougeloaderSpigot.CODE_VERSION){
+            //Log if the build is outdated
             Bukkit.getLogger().log(Level.WARNING,"This build of RougeLoader is outdated. You may find the latest build at: "+parsed.getVersions().get(parsed.getLatestStableBuildCodeVersion().toString()).getDownloadURL());
         }
+        //Delete the local file
         selfUpateUrl.delete();
-    }
-
-    public static void main(String[] args) throws IOException {
-        checkForUpdates();
     }
 }

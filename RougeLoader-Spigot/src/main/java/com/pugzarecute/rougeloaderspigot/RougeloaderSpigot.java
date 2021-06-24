@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 
 public final class RougeloaderSpigot extends JavaPlugin {
+    //Current version of the code in this jar. Only used by the UpdateChecker as of now.
     public static final Double CODE_VERSION = 1.0;
     @Override
     public void onEnable() {
@@ -34,6 +35,7 @@ public final class RougeloaderSpigot extends JavaPlugin {
 
         Bukkit.getLogger().log(Level.INFO,"Starting RougeLoader Update Checker.");
         try {
+            //Start the update checker.
             RougeUpdater.checkForUpdates();
         } catch (IOException e) {
             e.printStackTrace();
