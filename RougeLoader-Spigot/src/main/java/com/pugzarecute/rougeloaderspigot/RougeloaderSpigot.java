@@ -42,7 +42,7 @@ public final class RougeloaderSpigot extends JavaPlugin {
             //Start the update checker.
             RougeUpdater.checkForUpdates();
         } catch (IOException e) {
-            e.printStackTrace();
+            Bukkit.getLogger().log(Level.WARNING,"Failed to start Rouge Update Checker");
         }
     }
 
