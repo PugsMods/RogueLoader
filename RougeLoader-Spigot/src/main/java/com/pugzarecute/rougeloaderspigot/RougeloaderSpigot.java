@@ -25,6 +25,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.logging.Level;
 
 public final class RougeloaderSpigot extends JavaPlugin {
@@ -32,9 +33,9 @@ public final class RougeloaderSpigot extends JavaPlugin {
     public static final Double CODE_VERSION = 1.0;
     @Override
     public void onEnable() {
-        getCommand("load").setExecutor(new PluginLoader());
-        getCommand("rouge").setExecutor(new RougeCommand());
-        getCommand("update_plugin").setExecutor(new PluginUpdater());
+        Objects.requireNonNull(getCommand("load")).setExecutor(new PluginLoader());
+        Objects.requireNonNull(getCommand("rouge")).setExecutor(new RougeCommand());
+        Objects.requireNonNull(getCommand("update_plugin")).setExecutor(new PluginUpdater());
 
         Bukkit.getLogger().log(Level.INFO,"Starting RougeLoader Update Checker.");
         try {
