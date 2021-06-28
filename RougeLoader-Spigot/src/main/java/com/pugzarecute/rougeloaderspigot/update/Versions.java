@@ -30,8 +30,12 @@ public class Versions {
         return versionCode;
     }
 
+    public String getDisplayName() {
+        return displayName;
+    }
+
     private String versionCode;
     private String downloadURL;
     private String channel;
-
+    private String displayName;
 }

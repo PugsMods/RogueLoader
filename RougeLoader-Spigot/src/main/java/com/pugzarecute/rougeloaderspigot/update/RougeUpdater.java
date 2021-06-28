@@ -43,7 +43,7 @@ public class RougeUpdater {
         SelfUpdateJSONTemplate parsed = new Gson().fromJson(new FileReader(selfUpateUrl), SelfUpdateJSONTemplate.class);
         if(parsed.getLatestStableBuildCodeVersion() > RougeloaderSpigot.CODE_VERSION){
             //Log if the build is outdated
-            Bukkit.getLogger().log(Level.WARNING,"This build of RougeLoader is outdated. You may find the latest build at: "+parsed.getVersions().get(parsed.getLatestStableBuildCodeVersion().toString()).getDownloadURL());
+            Bukkit.getLogger().log(Level.WARNING,"This build of RougeLoader is outdated. Current Version: "+parsed.getVersions().get(parsed.getLatestStableBuildCodeVersion().toString())+"("+parsed.getVersions().get(parsed.getLatestStableBuildCodeVersion().toString()).getDisplayName()+"). Latest version:"+parsed.getVersions().get(RougeloaderSpigot.CODE_VERSION.toString())+"("+parsed.getVersions().get(RougeloaderSpigot.CODE_VERSION.toString()).getDisplayName()+" You may find the latest build at: "+parsed.getVersions().get(parsed.getLatestStableBuildCodeVersion().toString()).getDownloadURL());
         }
         //Delete the local file
         selfUpateUrl.delete();
